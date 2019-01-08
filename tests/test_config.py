@@ -2,7 +2,10 @@
 """Author:      Olivier van der Toorn <o.i.vandertoorn@utwente.nl>
 Description:    Tests the sqlite library.
 """
-import pytest
+import sys
+import os
+sys.path.append(os.path.abspath(os.curdir))
+
 from sql import config
 
 

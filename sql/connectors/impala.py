@@ -40,6 +40,9 @@ class ImpalaClient():
 
         self.config = config.read('impala_client')
         for key, value in self.config.items():
+            if key == 'port':
+                value = int(value)
+
             setattr(self, key, value)
 
     def __enter__(self):
@@ -127,9 +130,4 @@ class ImpalaWrapper():
             stdout=subprocess.PIPE)
         stdout, _ = process.communicate(input=query)
         process.wait()
-        output = []
-        for line in reversed(stdout.decode().split('\n')):
-            if line:
-                output.append(pickle.loads(eval(line)))
-
-        return output
+        return pickle.loads(eval(stdout.decode()))

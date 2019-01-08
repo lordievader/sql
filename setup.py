@@ -6,6 +6,6 @@ setup(
     description='SQL abstraction library',
     author='Olivier van der Toorn',
     author_email='oliviervdtoorn@gmail.com',
-    packages=['sql'],
+    packages=['sql', 'sql.connectors'],
     install_requires=[],
 )
