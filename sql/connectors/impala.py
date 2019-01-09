@@ -97,7 +97,7 @@ class ImpalaClient():
             sys.exit(1)
 
 
-class ImpalaWrapper():
+class Database():
     """Wrapper for the ImpalaClient, the ImpalaClient runs on the cluster
     (voordeur) and the wrapper runs locally. The transport mechanism is sshfs.
     """

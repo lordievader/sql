@@ -9,18 +9,18 @@ sys.path.append(os.path.abspath(os.curdir))
 from sql.connectors import impala
 
 
-def test_impala_wrapper_create():
+def test_impala_create():
     """Tests the creation of an ImpalaWrapper object.
     """
-    impala.ImpalaWrapper('test_impala')
+    impala.Database('test_impala')
 
 
-def test_impala_wrapper_query():
+def test_impala_query():
     """Test a query against impala.
     """
     result_A = [(1,), (2,)]
     result_B = [(2,), (1,)]
-    database = impala.ImpalaWrapper(
+    database = impala.Database(
         'test_impala')
     query = database.query(
         'SELECT 1 UNION SELECT 2')
