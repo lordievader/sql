@@ -90,7 +90,13 @@ class ImpalaClient():
         self.cursor = self.connection.cursor(convert_types=False)
         try:
             self.cursor.execute(query_string)
-            return self.cursor.fetchall()
+            try:
+                result = self.cursor.fetchall()
+
+            except imperror.ProgrammingError:
+                result = []
+
+            return result
 
         except imperror.HiveServer2Error as error:
             sys.stderr.write(str(error) + '\n')
@@ -130,4 +136,11 @@ class Database():
             stdout=subprocess.PIPE)
         stdout, _ = process.communicate(input=query)
         process.wait()
-        return pickle.loads(eval(stdout.decode()))
+        result = stdout.decode()
+        if result:
+            result = pickle.loads(eval(result))
+
+        else:
+            result = []
+
+        return result
