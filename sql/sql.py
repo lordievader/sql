@@ -27,10 +27,10 @@ except ImportError:
 
 try:
     from sql.connectors import postgresql
-    POSTGRES = True
+    POSTGRESQL = True
 
 except ImportError:
-    POSTGRES = False
+    POSTGRESQL = False
 
 
 class SQL():
