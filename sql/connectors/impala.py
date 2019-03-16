@@ -99,6 +99,7 @@ class ImpalaClient():
             return result
 
         except imperror.HiveServer2Error as error:
+            self.close()
             sys.stderr.write(str(error) + '\n')
             sys.exit(1)
 
