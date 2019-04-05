@@ -6,8 +6,8 @@ Currently these database types are supported:
 
 - sqlite
 - impala
+- postgres
 
 These database types are a work in progress:
 
 - mysql
-- postgres
