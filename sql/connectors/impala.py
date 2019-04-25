@@ -6,6 +6,7 @@ import sys
 import pickle
 import logging
 import subprocess
+import pdb
 from sql import config
 
 try:
@@ -139,7 +140,18 @@ class Database():
         process.wait()
         result = stdout.decode()
         if result:
-            result = pickle.loads(eval(result))
+            # result = pickle.loads(eval(result))
+
+            data = []
+            lines = result.split('\n')[:-1]
+            for line in lines:
+                data.extend(
+                    pickle.loads(
+                        eval(line)
+                    )
+                )
+
+            result = data
 
         else:
             result = []

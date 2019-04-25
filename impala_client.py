@@ -20,10 +20,22 @@ def main():
     else:
         sys.exit(1)
 
-    with impala_client as client:
-        result = client.query(query)
+    # with impala_client as client:
+    #     result = client.query(query)
 
-    print(pickle.dumps(result))
+    # print(pickle.dumps(result))
+
+    with impala_client as client:
+        cursor = client.connection.cursor(convert_types=False)
+        cursor.execute(query)
+        empty = False
+        while empty is False:
+            result = cursor.fetchmany(int(1e3))
+            if len(result) == 0:
+                empty = True
+
+            else:
+                print(pickle.dumps(result))
 
 
 if __name__ == "__main__":
