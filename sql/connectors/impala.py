@@ -31,6 +31,7 @@ class ImpalaClient():
     connection = None
     cursor = None
     kirby_client = None
+    user = None
 
     def __init__(self):
         if CLIENT is False:
@@ -63,7 +64,7 @@ class ImpalaClient():
     def connect(self):
         """Connects to the cluster.
         """
-        kirby.Kirby()
+        kirby.Kirby(user=self.user)
         self.connection = impala.connect(
             host=self.host,
             port=self.port,
