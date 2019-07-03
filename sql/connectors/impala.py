@@ -9,7 +9,6 @@ import subprocess
 import pdb
 from sql import config
 
-logging.basicConfig(level='INFO')
 
 try:
     # pylint: disable=import-error
@@ -17,6 +16,7 @@ try:
     import kirby
     import impala.dbapi as impala
     import impala.error as imperror
+    logging.getLogger('impala').setLevel(logging.ERROR)
     CLIENT = True
 
 except ImportError:
