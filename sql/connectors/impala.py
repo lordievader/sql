@@ -17,6 +17,7 @@ try:
     import impala.dbapi as impala
     import impala.error as imperror
     logging.getLogger('impala').setLevel(logging.ERROR)
+    logging.getLogger('kirby').setLevel(logging.ERROR)
     CLIENT = True
 
 except ImportError:
