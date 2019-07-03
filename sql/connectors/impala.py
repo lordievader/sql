@@ -9,6 +9,8 @@ import subprocess
 import pdb
 from sql import config
 
+logging.basicConfig(level='INFO')
+
 try:
     # pylint: disable=import-error
     # These imports need to be availble for the client
