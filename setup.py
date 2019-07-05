@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='sql',
-    version='1.3.1',
+    version='1.4.0',
     description='SQL abstraction library',
     author='Olivier van der Toorn',
     author_email='oliviervdtoorn@gmail.com',
